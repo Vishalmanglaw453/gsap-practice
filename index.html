@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP Animation</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+
+        #box3 {
+            color: black;
+            font-size: 30px;
+        }
+
+        #box4 {
+            color: black;
+            font-size: 30px;
+        }
+
+        body {
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box"></div>
+    <div id="box2"></div>
+
+    <div id="box3">Hello World</div>
+    <div id="box4">ease try</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script>
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+
+        gsap.to("#box", {
+            x: vw - 100,
+            y: vh - 100, 
+            duration: 10,
+            backgroundColor: "red",
+            borderRadius: "50%",
+            yoyo: true,
+            opacity: 0,
+            rotation: 360,
+            repeat: Infinity,
+        });
+
+        gsap.from("#box2", {
+            x: vw - 100,
+            duration: 10,
+            backgroundColor: "red",
+            borderRadius: "50%",
+            yoyo: true,
+            rotation: 360,
+        });
+
+        gsap.fromTo("#box3", {
+            opacity: 0,
+            y: 100,
+
+        }, {
+            opacity: 1,
+            y: 300,
+            delay: 1,
+        });
+
+        gsap.fromTo("#box4", {
+            y: 300,
+            x: 400,
+        }, {
+            x: 100,
+            y: 100,
+            duration: 4,
+            delay: 1,
+            ease: "steps(12)",
+        });
+    </script>
+
+</body>
+
+</html>
